@@ -1,5 +1,5 @@
 from django.db import models
-from .disciplinas import Disciplina
+from curriculo.models.disciplinas import Disciplina
 
 __alunos__ = ["aluno_1@aluno.faculdadeimpacta.com.br",
               "aluna_2@aluno.faculdadeimpacta.com.br"]
@@ -13,6 +13,8 @@ class Curso(models.Model):
     sigla = models.CharField(max_length=5, unique=True)
     disciplinas = models.ManyToManyField(Disciplina,
                                          through='MatrizCurricular')
+    semestres = models.IntegerField(default=4)
+    descricao = models.TextField(blank=True)
 
     def __str__(self):
         return self.nome

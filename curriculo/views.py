@@ -9,6 +9,6 @@ def curso(request, sigla):
         'curso': c,
         # Aqui substitua o dicionario vazio pelo gerado pelo método
         # monta_matriz
-        'matriz': {}  # c.monta_matriz()
+        'matriz': c.monta_matriz()
     }
     return render(request, 'curriculo/curso.html', context)
